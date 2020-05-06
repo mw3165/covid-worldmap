@@ -23,7 +23,7 @@ export const actions = {
         var articles = await new Promise((resolve, reject) => {
             const newspapers = ['cnn','nytimes.com','theguardian.com', 'reuters.com'];
             Highcharts.ajax({  
-                url: `http://newsapi.org/v2/everything?q=+${name}+"COVID-19"&language=en&domains=${newspapers.join(',')}&sortBy=publishedAt&pageSize=5&apiKey=b1eb35f8570f449c9a5760bf48ceb7f0`,  
+                url: `https://newsapi.org/v2/everything?q=+${name}+"COVID-19"&language=en&domains=${newspapers.join(',')}&sortBy=publishedAt&pageSize=5&apiKey=b1eb35f8570f449c9a5760bf48ceb7f0`,  
                 dataType: 'text',  
                 success: function(data) {
                     data = JSON.parse(data);
@@ -43,7 +43,7 @@ export const actions = {
                     const ret = [];
                     Highcharts.each(lines, function (line, i) {
                         const items = line.split(',');
-                        if (countries[items[0]] == undefined) console.log(items[0]);
+                        // if (countries[items[0]] == undefined) console.log(items[0]);
                         ret.push({
                             code: countries[items[0]],
                             value: items[items.length-1],
